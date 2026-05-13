@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Spring configuration file for
+    reference type dependency injection.
+-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Address bean -->
+    <bean id="address" class="com.deepanshu.spring_core_learning.reference_type_injection.Address">
+
+        <property name="city" value="Noida"/>
+        <property name="state" value="Uttar Pradesh"/>
+
+    </bean>
+
+    <!--
+        Person bean containing reference
+        to Address bean.
+    -->
+    <bean id="person1" class="com.deepanshu.spring_core_learning.reference_type_injection.Person">
+
+		<property name="personId" value="101"/>
+        <property name="personName" value="Deepanshu"/>
+
+        <!-- Injecting Address object reference -->
+        <property name="personAddress" ref="address"/>
+
+    </bean>
+
+</beans>

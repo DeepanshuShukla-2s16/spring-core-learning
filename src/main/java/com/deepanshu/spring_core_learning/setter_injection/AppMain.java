@@ -12,7 +12,7 @@ public class AppMain
          * Loading Spring configuration file
          * and creating Spring IoC container.
          */
-        ApplicationContext context = new ClassPathXmlApplicationContext("com/deepanshu/spring_core_learning/setter_injection/setter_injection_config.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("setter_injection_config.xml");
 
         /*
          * Retrieving bean object from Spring container.
