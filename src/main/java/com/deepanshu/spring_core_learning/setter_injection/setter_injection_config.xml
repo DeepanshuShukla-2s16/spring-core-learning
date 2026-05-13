@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Spring configuration file
+
+    This file is used to:
+    - Define beans
+    - Configure dependencies
+    - Inject values into objects
+-->
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<!--
+        Bean creation by Spring container
+
+        Spring creates object of Student class
+        and injects values using setter injection.
+    -->
+    <bean id="student1" class="com.deepanshu.spring_core_learning.setter_injection.Student">
+
+        <property name="staudentId" value="101"/>
+        <property name="studentName" value="Deepanshu"/>
+        <property name="studentAddress" value="Delhi"></property>
+
+    </bean>
+
+</beans>
