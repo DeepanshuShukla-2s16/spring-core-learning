@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Spring configuration file
+
+    This file is used to:
+    - Define beans
+    - Configure dependencies
+    - Inject values into objects
+-->
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+<!-- ===================================================== -->
+<!-- Constructor Injection WITHOUT using type, name, index -->
+<!-- ===================================================== -->
+
+<!--
+    Spring tries to match constructor arguments automatically
+    based on:
+    - number of arguments
+    - argument order
+    - argument data types
+
+    This approach may create ambiguity when multiple
+    constructors have similar parameter types.
+-->
+<bean id="person1" class="com.deepanshu.spring_core_learning.constructor_injection.Person">
+
+    <constructor-arg value="101"/>
+    <constructor-arg value="Deepanshu"/>
+    <constructor-arg value="23"/>
+
+</bean>
+
+<!--
+    Here Spring may become confused because
+    multiple constructors can match these values.
+
+    Spring will choose the best matching constructor,
+    but result may not always be expected.
+-->
+<bean id="person2" class="com.deepanshu.spring_core_learning.constructor_injection.Person">
+
+    <constructor-arg value="Deepanshu"/>
+    <constructor-arg value="23"/>
+    <constructor-arg value="102"/>
+
+</bean>
+
+<!-- ====================================== -->
+<!-- Constructor Injection using TYPE -->
+<!-- ====================================== -->
+
+<!--
+    type attribute tells Spring which data type should be injected intom constructor parameters.
+
+    Spring matches constructor arguments using parameter data types.
+-->
+<bean id="person3"
+      class="com.deepanshu.spring_core_learning.constructor_injection.Person">
+
+    <!-- Injecting integer value -->
+    <constructor-arg value="101" type="int"/>
+
+    <!-- Injecting string value -->
+    <constructor-arg value="Deepanshu" type="java.lang.String"/>
+
+    <!-- Injecting integer value -->
+    <constructor-arg value="23" type="int"/>
+
+</bean>
+
+<!--
+    type attribute helps Spring identify
+    the correct constructor when multiple
+    constructors are available.
+
+    But ambiguity may still happen if
+    constructors contain similar data types(sequence may be disoreder).
+-->
+<bean id="person4"
+      class="com.deepanshu.spring_core_learning.constructor_injection.Person">
+
+    <!-- Injecting string value -->
+    <constructor-arg value="Deepanshu" type="java.lang.String"/>
+
+    <!-- Injecting integer value -->
+    <constructor-arg value="23" type="int"/>
+
+    <!-- Injecting integer value -->
+    <constructor-arg value="102" type="int"/>
+
+</bean>
+
+
+<!-- ====================================== -->
+<!-- Constructor Injection using NAME -->
+<!-- ====================================== -->
+
+<!--
+    name attribute maps values using
+    constructor parameter names.
+
+    Spring injects values into matching
+    constructor parameters by their names.
+-->
+<bean id="person5"
+      class="com.deepanshu.spring_core_learning.constructor_injection.Person">
+
+    <constructor-arg name="personId" value="101"/>
+    <constructor-arg name="personName" value="Deepanshu"/>
+    <constructor-arg name="personAge" value="23"/>
+
+</bean>
+
+<!--
+    Even if argument order changes,
+    Spring can still inject correct values
+    using parameter names.
+-->
+<bean id="person6"
+      class="com.deepanshu.spring_core_learning.constructor_injection.Person">
+
+    <constructor-arg name="personName" value="Deepanshu"/>
+    <constructor-arg name="personAge" value="23"/>
+    <constructor-arg name="personId" value="102"/>
+
+</bean>
+
+
+
+<!-- ====================================== -->
+<!-- Constructor Injection using INDEX -->
+<!-- ====================================== -->
+
+<!--
+    index attribute injects values based
+    on constructor parameter position.
+
+    index="0" -> first parameter
+    index="1" -> second parameter
+    index="2" -> third parameter
+-->
+<bean id="person7"
+      class="com.deepanshu.spring_core_learning.constructor_injection.Person">
+
+    <constructor-arg index="0" value="101"/>
+    <constructor-arg index="1" value="Deepanshu"/>
+    <constructor-arg index="2" value="23"/>
+
+</bean>
+
+<!--
+    index attribute helps Spring resolve
+    constructor ambiguity problem clearly.
+
+    This is one of the most reliable ways
+    to perform constructor injection.
+-->
+<bean id="person8"
+      class="com.deepanshu.spring_core_learning.constructor_injection.Person">
+
+    <constructor-arg index="0" value="Deepanshu"/>
+    <constructor-arg index="1" value="23"/>
+    <constructor-arg index="2" value="102"/>
+
+</bean>
+
+</beans>
