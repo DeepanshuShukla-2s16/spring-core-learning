@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Spring configuration file for
+    annotation based lifecycle methods.
+-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       https://www.springframework.org/schema/beans/spring-beans.xsd
+       
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--
+        Enables support for annotations
+        like @PostConstruct and @PreDestroy or etc.
+    -->
+    <context:annotation-config/>
+
+    <!-- Bean managed by Spring container -->
+    <bean id="laptop" class="com.deepanshu.spring_core_learning.lifecycle.annotations.Laptop">
+
+        <!-- Injecting property value -->
+        <property name="laptopName" value="MacBook Pro"/>
+
+    </bean>
+
+</beans>
