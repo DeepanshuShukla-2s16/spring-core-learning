@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Spring configuration file for
+    autowiring byName example.
+-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+        Address bean.
+
+        Bean id must match property name
+        for autowiring byName.
+    -->
+    <bean id="address" 
+    	class="com.deepanshu.spring_core_learning.autowiring.byname.Address">
+
+        <property name="city" value="Lucknow"/>
+        <property name="state" value="Uttar Pradesh"/>
+
+    </bean>
+
+    <!--
+        Employee bean using autowiring byName.
+
+        Spring will automatically inject
+        Address bean into Employee class.
+    -->
+    <bean id="employee" 
+    	class="com.deepanshu.spring_core_learning.autowiring.byname.Employee"
+        autowire="byName">
+
+        <property name="empId" value="101"/>
+        <property name="empName" value="Deepanshu"/>
+
+    </bean>
+
+</beans>
