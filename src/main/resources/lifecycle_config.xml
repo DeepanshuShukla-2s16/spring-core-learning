@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Spring configuration file for Bean Lifecycle Methods.
+-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+        init-method:
+        Called after bean initialization.
+
+        destroy-method:
+        Called before bean destruction.
+    -->
+    <bean id="bike"
+          class="com.deepanshu.spring_core_learning.lifecycle.xml_config.Bike"
+          init-method="init"
+          destroy-method="destroy">
+
+        <!-- Injecting property value -->
+        <property name="bikeName" value="Royal Enfield"/>
+
+    </bean>
+
+</beans>
