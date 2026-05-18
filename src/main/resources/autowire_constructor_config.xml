@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Spring configuration file for
+    constructor autowiring example.
+-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+        Dependency bean.
+    -->
+    <bean id="paymentGateway"
+          class="com.deepanshu.spring_core_learning.autowiring.constructor.PaymentGateway">
+
+        <property name="providerName" value="Razorpay"/>
+        <property name="transactionMode" value="UPI"/>
+
+    </bean>
+
+    <!--
+        Main bean using constructor autowiring.
+
+        Spring automatically injects
+        PaymentGateway dependency
+        through constructor.
+    -->
+    <bean id="orderService"
+          class="com.deepanshu.spring_core_learning.autowiring.constructor.OrderService"
+          autowire="constructor"/>
+          
+</beans>
