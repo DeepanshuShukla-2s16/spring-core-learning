@@ -2,7 +2,7 @@
 
 <!--
     Spring configuration file for
-    autowiring byName example.
+    autowiring byType example.
 -->
 
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -14,28 +14,28 @@
     <!--
         Address bean.
 
-        Bean id must match property name
-        for autowiring byName.
+        Bean id is not important in byType.
+        Spring matches dependency using class type.
     -->
-    <bean id="address" 
-    	class="com.deepanshu.spring_core_learning.autowiring.byname.Address">
+    <bean id="myAddressBean"
+          class="com.deepanshu.spring_core_learning.autowiring.bytype.Address">
 
-        <property name="city" value="Lucknow"/>
+        <property name="city" value="Kanpur"/>
         <property name="state" value="Uttar Pradesh"/>
 
     </bean>
 
     <!--
-        Employee bean using autowiring byName.
+        Employee bean using autowiring byType.
 
-        Spring will automatically inject
-        Address bean into Employee class.
+        Spring automatically searches
+        Address type bean and injects it.
     -->
-    <bean id="employee" 
-    	class="com.deepanshu.spring_core_learning.autowiring.byname.Employee"
-        autowire="byName">
+    <bean id="employee"
+          class="com.deepanshu.spring_core_learning.autowiring.bytype.Employee"
+          autowire="byType">
 
-        <property name="empId" value="101"/>
+        <property name="empId" value="102"/>
         <property name="empName" value="Deepanshu"/>
 
     </bean>
