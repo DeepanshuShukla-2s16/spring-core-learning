@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Spring configuration file for
+    @Autowired annotation example.
+-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       https://www.springframework.org/schema/beans/spring-beans.xsd
+       
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--
+        Enables annotation processing
+        for @Autowired.
+    -->
+    <context:annotation-config/>
+
+    <!-- Dependency beans -->
+    <bean id="paymentService"
+          class="com.deepanshu.spring_core_learning.annotations.autowired.PaymentService"/>
+
+    <bean id="notificationService"
+          class="com.deepanshu.spring_core_learning.annotations.autowired.NotificationService"/>
+
+    <bean id="invoiceService"
+          class="com.deepanshu.spring_core_learning.annotations.autowired.InvoiceService"/>
+
+
+
+    <!-- Main bean -->
+    <bean id="orderService"
+          class="com.deepanshu.spring_core_learning.annotations.autowired.OrderService"/>
+
+</beans>
